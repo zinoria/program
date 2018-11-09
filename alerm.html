@@ -24,7 +24,7 @@ settimeform+="<div id='taima-' onclick='settimefunc()'>タイマーをセット<
 
 function helloworld(){
 	if(page==0){
-		document.getElementById("main").innerHTML=settimeform+"<audio id='alermmusic'><source src='alermMID.mid'type='audio/mid'><p>（対応外ブラウザ向けの表示）</p></audio>";
+		document.getElementById("main").innerHTML=settimeform+"<audio id='alermmusic'src='alermMID.mid' preload='auto'><p>（対応外ブラウザ向けの表示）</p></audio>";
 
 		document.getElementById("menu").innerHTML="hello";
 		document.getElementById("pic_ram").innerHTML="";
