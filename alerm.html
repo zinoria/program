@@ -23,10 +23,11 @@ settimeform+="<div id='taima-' onclick='settimefunc()'>タイマーをセット<
 //はじめのページ用
 
 function helloworld(){
+	
 	if(page==0){
 		document.getElementById("main").innerHTML=settimeform+"<audio id='alermmusic'src='alermMID_Splendid_reisiu_n.mp3' preload='auto'><p>（対応外ブラウザ向けの表示）</p></audio>";
 
-		document.getElementById("menu").innerHTML="hello";
+		document.getElementById("menu").innerHTML="<div id='back' onclick='helloworld()'>トップに戻る</div>";
 		document.getElementById("pic_ram").innerHTML="";
 		page=1;
 	}
@@ -115,7 +116,8 @@ function settimefunc()
 	alermhour=alermhour*60*60*1000;
 	alermminute=balanceminute+setminute-nowminute;
 	alermminute=alermminute*60*1000;
-	//(alermsecondはそのまま)
+	alermsecond=alermsecond*1000;
+	//(alermsecond
 
 alert(alermhour+alermminute+alermsecond);
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
@@ -128,7 +130,7 @@ function alerm(){
 
 
 document.getElementById("alermmusic").play();
-	alert("時間です");
+
 
 }
 
