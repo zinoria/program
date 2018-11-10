@@ -121,6 +121,7 @@ function settimefunc()
 
 
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
+	alert(<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>");
 	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>";
 	document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
@@ -166,7 +167,7 @@ document.getElementById("alerm"+alermdeletenum).innerHTML="";
 width="40%"  height="40%" onclick="cliked()">
 </div>
 
-<div id="allalerm" onclick="alermdelete()">
+<div id="allalerm" onclick="alert()">
 </div>
 
 
