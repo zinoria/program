@@ -121,8 +121,8 @@ function settimefunc()
 
 
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
-	alert("<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>");
-	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>";
+	alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
+	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
 	document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
 	//アラームの個数を記録して、該当するものを消す（未実装）
