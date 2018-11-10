@@ -121,7 +121,7 @@ function settimefunc()
 
 
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
-	alert(<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>");
+	alert("<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>");
 	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>";
 	document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
@@ -140,7 +140,7 @@ document.getElementById("alermmusic").play();
 function alermdelete(alermdeletenum)
 {
 alert("デリートします");
-document.getElementById("alerm"+alermdeletenum).innerHTML="";
+//document.getElementById("alerm"+alermdeletenum).innerHTML="";
 }
 
 
@@ -167,15 +167,15 @@ document.getElementById("alerm"+alermdeletenum).innerHTML="";
 width="40%"  height="40%" onclick="cliked()">
 </div>
 
-<div id="allalerm" onclick="alert()">
-</div>
+
 
 
 <div id="menu" onclick="helloworld()">
 	画像以外の文字をクリックしてスタート
 </div>
 
-
+<div id="allalerm" onclick="alert()">
+</div>
 
 </center>
 
