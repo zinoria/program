@@ -117,11 +117,12 @@ function settimefunc()
 	alermminute=balanceminute+setminute-nowminute;
 	alermminute=alermminute*60*1000;
 	alermsecond=alermsecond*1000;
-	//(alermsecond
+
 
 alert(alermhour+alermminute+alermsecond);
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
-	alert(sethour+"じ"+setminute+"ふんにアラームをセットしました");
+	document.getElementById("pic_ram").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました";
+
 
 }
 
