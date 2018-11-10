@@ -113,8 +113,12 @@ function settimefunc()
 
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
+
+	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
 	alermminute=balanceminute+setminute-nowminute;
+
+	//alermmunuteは
 	alermminute=alermminute*60*1000;
 	alermsecond=alermsecond*1000;
 
@@ -131,8 +135,8 @@ function settimefunc()
 
 
 function alerm(alermnum){
-alert(alermnum);
-document.getElementById("alermmusic").play();
+	alert(alermnum);
+	document.getElementById("alermmusic").play();
 
 }
 
@@ -174,7 +178,7 @@ width="40%"  height="40%" onclick="cliked()">
 	画像以外の文字をクリックしてスタート
 </div>
 
-<div id="allalerm" onclick="alert()">
+<div id="allalerm">
 </div>
 
 </center>
