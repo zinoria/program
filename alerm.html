@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
 let page=0;//ページ管理
-let alertyn=0;//アラートがあるyes or no.まだ実装はしていない
+let alermnum=0;//アラートの個数
 let nowtime,nowhour,nowminute,sethour,setminute
 
 let alermhour;//真のアラート用関数たち
@@ -119,22 +119,28 @@ function settimefunc()
 	alermsecond=alermsecond*1000;
 
 
-alert(alermhour+alermminute+alermsecond);
+
 	setTimeout(function(){alerm();},alermhour+alermminute+alermsecond);
-	document.getElementById("pic_ram").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました";
+	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='"+alermdelete("+alermnum+")+"'>"+sethour+"じ"+setminute+"ふんにアラームをセットしました<br>";
 
-
+	//アラームの個数を記録して、該当するものを消す（未実装）
+	alermnum++;
 }
 
 
 function alerm(){
 
-
+if(){
 document.getElementById("alermmusic").play();
-
+}
 
 }
 
+function alermdelete(alermdeletenum)
+{
+alert("デリートします");
+document.getElementById("alerm"+alermdeletenum).innerHTML="";
+}
 
 
 
@@ -157,6 +163,10 @@ document.getElementById("alermmusic").play();
 <img src="https://pbs.twimg.com/media/CwbzvWiVIAA1SCb.jpg:large" 
 width="40%"  height="40%" onclick="cliked()">
 </div>
+
+<div id="allalerm" onclick="alermdelete()">
+</div>
+
 
 <div id="menu" onclick="helloworld()">
 	画像以外の文字をクリックしてスタート
