@@ -123,14 +123,16 @@ function settimefunc()
 	alermsecond=alermsecond*1000;
 
 
+	if(isNaN(setminute) == false && isNaN(sethour) == false){
+		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
+		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
+		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
+		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
-	setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
-	alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
-	document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
-	document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
-
-	//アラームの個数を記録して、該当するものを消す（未実装）
-	alermnum++;
+		//アラームの個数を記録して、該当するものを消す（未実装）
+		alermnum++;
+	}
+	else{alert("文字を入力して下さい")}
 }
 
 
