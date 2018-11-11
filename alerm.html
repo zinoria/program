@@ -46,10 +46,10 @@ function settimefunc()
 
 
 	//さあ、難しい算数の時間だ
-	if(sethour<=nowhour){balancehour=0;}
+	if(sethour>nowhour){balancehour=0;}
 	else{balancehour=24;}
 
-	if(setminute<=nowminute){balanceminute=0;}
+	if(setminute>nowminute){balanceminute=0;}
 	else{balanceminute=60;}
 
 	alermsecond=60-nowsecond;
@@ -61,7 +61,7 @@ function settimefunc()
 	alermhour=alermhour*60*60*1000;
 	alermminute=balanceminute+setminute-nowminute;
 
-alert(alermsecond);
+
 
 	//alermmunute→60秒*1000ミリ
 	alermminute=alermminute*60*1000;
