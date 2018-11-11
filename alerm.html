@@ -81,11 +81,12 @@ alert(alermsecond);
 	else{alert("数字を入力して下さい")}
 }
 
-
-function alerm(alermnum){
+//alermnum"ber"に注意
+function alerm(alermnumber){
 //最初にアラームをセットしたときのalermnumがほしいが、現在の値のalermnumになってしまっている
 
 	document.getElementById("alermmusic").play();
+	alert(alermdata[alermnumber]+"の時間です");
 
 }
 
@@ -99,7 +100,6 @@ alert("デリートします");
 
 function wordsetting(wordsettingnum)
 {
-	alert("台詞をボタンにかえる関数です");
 	alermdata[alermnum]=wordsettingnum;
 alert(alermdata[alermnum]);
 }
