@@ -57,8 +57,6 @@ function settimefunc()
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
 
-alert(balancehour+sethour-nowhour);
-
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
 
@@ -90,7 +88,8 @@ alert(alermhour+alermminute+alermsecond);
 function alerm(alermnumber){
 
 	document.getElementById("alermmusic").play();
-	alert(alermdata[0]+"の時間です");
+
+	document.getElementById("allalerm").innerHTML+=alermdata[0]+"の時間です";
 
 }
 
@@ -158,14 +157,12 @@ width="150"  height="200" onclick="clicked()">
 </div>
 
 
-<!--アラームのセット完了画面-->
-<button type="button" value="alermsetbutton" onclick="settimefunc()">
-	アラームをセット（時間を選択：0～24時　0～59分）<br>(台詞を選択：台詞のボタンクリック)
-</button>
+
 
 
 <!--アラーム一覧-->
 <div id="allalerm">
+	アラームをセット（時間を選択：0～24時　0～59分）<br>(台詞を選択：台詞のボタンクリック)
 </div>
 
 <!--アラーム読み上げ内容設定画面-->
