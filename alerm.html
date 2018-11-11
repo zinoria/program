@@ -77,7 +77,8 @@ alert(balanceminute+setminute-nowminute);
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
 		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
-		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
+		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんに<div id='word["+alermnum+"]'>"+alermdata[alermnum]+"</div>をセットしました<br></div>";
+
 
 		//アラームの個数を記録して、該当するものを消す（未実装）div idを個数に合わせてある
 		alermnum++;
