@@ -111,26 +111,32 @@ alert("デリートします");
 <center>
 
 <div id="title">
-	<p>専属ゆかりん<br>読み上げあらーむ</p>
+	専属ゆかりん<br>読み上げあらーむ
 </div>
 
 <div id="pic_ram">
 <img src="https://pbs.twimg.com/media/CwbzvWiVIAA1SCb.jpg:large" 
-width="100"  height="200" onclick="clicked()">
+width="150"  height="200" onclick="clicked()">
 </div>
 
-<audio id="alermmusic" src="alermMID_Splendid_reisiu_n.mp3" preload="auto"><p>ｍｐ３に対応していないブラウザです</p></audio>;
 
+<!--アラームの音源-->
+<audio id="alermmusic" src="alermMID_Splendid_reisiu_n.mp3" preload="auto"><p>ｍｐ３に対応していないブラウザです</p></audio>
+
+
+<!--アラームのセット画面-->
 <h2>何時にしますか</h2><br>
 <input type="text" id="sethour">時<input type="text" id="setminute">分<br>
-<div id="taima-" onclick="settimefunc()">アラームをセット（0～24時　0～59分）</div>
 
+<button type="button" value="alermsetbutton" onclick="settimefunc()">
+アラームをセット（0～24時　0～59分）
+</button>
 
 <div id="menu">
 お風呂　歯磨き･･･
 </div>
 
-//アラーム一覧
+<!--アラーム一覧-->
 <div id="allalerm">
 </div>
 
