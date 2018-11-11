@@ -8,8 +8,7 @@ let alermnum=0;//現在設定しているアラームの個数
 let alermdata=new Array();//台詞とアラームの個数を関連づける。
 let wordnum=new Array();//台詞の個数管理
 
-let word=new Array();
-
+let word=["掃除","買い物"];//台詞の一覧表
 
 
 //アラーム用関数たちsettimefunc()
@@ -100,7 +99,7 @@ alert("デリートします");
 
 function wordsetting(wordsettingnum)
 {
-	alermdata[alermnum]=wordsettingnum;
+	alermdata[alermnum]=word[wordsettingnum];
 alert(alermdata[alermnum]);
 }
 
@@ -140,8 +139,8 @@ width="150"  height="200" onclick="clicked()">
 
 <!--台詞のセット画面-->
 <div id="menu">
-	<button onclick="wordsetting('掃除')">掃除</button>
-	<button onclick="wordsetting('買い物')">買い物</button>
+	<button onclick="wordsetting(0)">掃除</button>
+	<button onclick="wordsetting(1)">買い物</button>
 </div>
 
 
