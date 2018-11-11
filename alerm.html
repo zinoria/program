@@ -4,7 +4,6 @@
 <head>
 <script type="text/javascript">
 
-let page=0;//ページ管理
 let alermnum=0;//アラートの個数
 let nowtime,nowhour,nowminute,sethour,setminute
 
@@ -16,11 +15,11 @@ let alermsecond;
 //はじめのページの変移
 let settimeform="<h2>何時にしますか</h2><br>";
 settimeform+="<input type='text' id='sethour'>時<input type='text' id='setminute'>分<br>"
-settimeform+="<div id='taima-' onclick='settimefunc()'>タイマーをセット</div>";
+settimeform+="<div id='taima-' onclick='settimefunc()'>アラームをセット（0～24時　0～59分）</div>";
 
 
 
-//はじめのページ用
+//はじめのページからかえる
 
 function helloworld(){
 	
@@ -33,11 +32,135 @@ function helloworld(){
 	}
 };
 
-function cliked(){
-	//ここにランダム画像切り替えを実装する
-	alert("おしましたね？");
+
+function clicked()
+{
+	//ゆかりさんがランダムな一言を話す
+	alert("clicked");
 }
 
+
+
+//時間をセットする（一定時間後にアラームが鳴るようにする）
+
+function settimefunc()
+{
+	sethour=document.getElementById("sethour").value;
+	setminute=document.getElementById("setminute").value;
+	nowtime= new Date();
+	nowhour=nowtime.getHours();
+	nowminute=nowtime.getMinutes();
+	nowsecond=nowtime.getSeconds();
+
+	//一日後でも大丈夫
+	let balancehour=0;
+	let balanceminute=0;
+	let balancesecond=0;
+
+
+
+	//さあ、難しい算数の時間だ
+	if(sethour<=nowhour){balancehour=0;}
+	else{balancehour=24;}
+
+	if(setminute<=nowminute){balanceminute=0;}
+	else{balanceminute=60;}
+
+	alermsecond=60-nowsecond;
+
+	//時間の差異が求められたのでミリ秒に直す
+	alermhour=balancehour+sethour-nowhour;
+
+	//alermhour→６０分*６０秒*1000ミリ
+	alermhour=alermhour*60*60*1000;
+	alermminute=balanceminute+setminute-nowminute;
+
+alert(balanceminute+setminute-nowminute);
+
+	//alermmunute→60秒*1000ミリ
+	alermminute=alermminute*60*1000;
+	alermsecond=alermsecond*1000;
+
+
+	if(isNaN(setminute) == false && isNaN(sethour) == false){
+		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
+		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
+		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
+		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
+
+		//アラームの個数を記録して、該当するものを消す（未実装）div idを個数に合わせてある
+		alermnum++;
+	}
+	else{alert("数字を入力して下さい")}
+}
+
+
+function alerm(alermnum){
+	alert(alermnum);
+	document.getElementById("alermmusic").play();
+
+}
+
+//アラームを削除する（未実装）
+function alermdelete(alermdeletenum)
+{
+alert("デリートします");
+//document.getElementById("alerm"+alermdeletenum).innerHTML="";
+}
+
+
+
+</script>
+
+
+<title>ゆかりんアラーム</title>
+
+</head>
+
+
+<body>
+
+
+<center>
+
+<div id="title">
+	<p>専属ゆかりん<br>読み上げあらーむ</p>
+</div>
+
+<div id="pic_ram">
+<img src="https://pbs.twimg.com/media/CwbzvWiVIAA1SCb.jpg:large" 
+width="100"  height="200" onclick="clicked()">
+</div>
+
+<audio id="alermmusic" src="alermMID_Splendid_reisiu_n.mp3" preload="auto"><p>ｍｐ３に対応していないブラウザです</p></audio>;
+
+
+
+<div id="menu">
+</div>
+
+
+<div id="allalerm">
+</div>
+
+
+</center>
+
+
+<script>//没案まとめ
+/*	if(sethour>nowhour){
+		alermhour=sethour-nowhour*60*60*1000;
+	}
+	else{
+		alermhour=24+sethour-nowhour*60*60*1000;
+	}
+	if(setminute>nowminute){
+		alermminute=setminute-nowminute*60*1000;
+	}
+	else{
+		alermminute=60+setminute-nowminute*60*1000;
+	}
+*/
 
 /*こういう方法もあるけどあんまり正確じゃないよ
 //アラームのための関数をセットする
@@ -69,124 +192,6 @@ alert(nowhour+""+sethour+""+nowminute+""+setminute);
 }
 */
 
-
-
-function settimefunc()
-{
-	sethour=document.getElementById("sethour").value;
-	setminute=document.getElementById("setminute").value;
-	nowtime= new Date();
-	nowhour=nowtime.getHours();
-	nowminute=nowtime.getMinutes();
-	nowsecond=nowtime.getSeconds();
-
-	//関数を数字に直す
-	Number(sethour);Number(setminute);
-	//一日後でも大丈夫
-	let balancehour=0;
-	let balanceminute=0;
-	let balancesecond=0;
-
-	//以下没案
-/*	if(sethour>nowhour){
-		alermhour=sethour-nowhour*60*60*1000;
-	}
-	else{
-		alermhour=24+sethour-nowhour*60*60*1000;
-	}
-	if(setminute>nowminute){
-		alermminute=setminute-nowminute*60*1000;
-	}
-	else{
-		alermminute=60+setminute-nowminute*60*1000;
-	}
-*/
-
-	//さあ、難しい算数の時間だ
-	if(sethour<=nowhour){balancehour=0;}
-	else{balancehour=24;}
-
-	if(setminute<=nowminute){balanceminute=0;}
-	else{balanceminte=60;}
-
-	alermsecond=60-nowsecond;
-
-	//時間の差異が求められたのでミリ秒に直す
-	alermhour=balancehour+sethour-nowhour;
-
-	//alermhour→６０分*６０秒*1000ミリ
-	alermhour=alermhour*60*60*1000;
-	alermminute=balanceminute+setminute-nowminute;
-
-	//alermmunuteは
-	alermminute=alermminute*60*1000;
-	alermsecond=alermsecond*1000;
-
-
-	if(isNaN(setminute) == false && isNaN(sethour) == false){
-		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
-		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
-		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
-		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
-
-		//アラームの個数を記録して、該当するものを消す（未実装）
-		alermnum++;
-	}
-	else{alert("文字を入力して下さい")}
-}
-
-
-function alerm(alermnum){
-	alert(alermnum);
-	document.getElementById("alermmusic").play();
-
-}
-
-
-function alermdelete(alermdeletenum)
-{
-alert("デリートします");
-//document.getElementById("alerm"+alermdeletenum).innerHTML="";
-}
-
-
-
-</script>
-
-
-<title>ゆかりんアラーム</title>
-
-</head>
-
-
-<body>
-
-
-<center>
-
-<div id="main" onclick="helloworld()">
-	<p>専属ゆかりん<br>読み上げあらーむ</p>
-</div>
-
-<div id="pic_ram">
-<img src="https://pbs.twimg.com/media/CwbzvWiVIAA1SCb.jpg:large" 
-width="40%"  height="40%" onclick="cliked()">
-</div>
-
-
-
-
-<div id="menu" onclick="helloworld()">
-	画像以外の文字をクリックしてスタート
-</div>
-
-<div id="allalerm">
-</div>
-
-</center>
-
-
-<script>
 </script>
 
 
