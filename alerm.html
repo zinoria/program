@@ -76,7 +76,7 @@ alert("balanceminute+setminute-nowminute:"+balanceminute+setminute-nowminute);
 	if(isNaN(setminute) == false && isNaN(sethour) == false){
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
-		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
+		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete()'>";
 		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんに<div id='word["+alermnum+"]'>"+alermdata[alermnum]+"</div>をセットしました<br></div>";
 
 
@@ -98,7 +98,7 @@ function alerm(alermnumber){
 }
 
 //アラームを削除する（未実装）
-function alermdelete(alermdeletenum)
+function alermdelete()
 {
 alert(alermdeletenum+"つめをデリートします");
 //document.getElementById("alerm"+alermdeletenum).innerHTML="";
