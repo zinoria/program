@@ -49,7 +49,7 @@ function settimefunc()
 	if(sethour>=nowhour){balancehour=0;}
 	else{balancehour=24;}
 
-	if(setminute>nowminute){balanceminute=-1;}
+	if(setminute>nowminute){balanceminute=0;}
 	else if(setminute==nowminute){balanceminute=0;alert("現在時刻と同じなので、１分後にアラームを鳴らします");}
 	else{balanceminute=59;}
 
@@ -58,14 +58,14 @@ function settimefunc()
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
 
-alert("balancehour+sethour-nowhour:"+balancehour+sethour-nowhour);
+alert(balancehour+sethour-nowhour);
 
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
 
 	alermminute=balanceminute+setminute-nowminute;
 
-alert("balanceminute+setminute-nowminute:"+balanceminute+setminute-nowminute);
+alert(balanceminute+setminute-nowminute);
 
 	//alermmunute→60秒*1000ミリ
 	alermminute=alermminute*60*1000;
