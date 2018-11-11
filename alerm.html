@@ -4,19 +4,14 @@
 <head>
 <script type="text/javascript">
 
-let alermnum=0;//アラートの個数
-let nowtime,nowhour,nowminute,sethour,setminute
+let alermnum=0;//現在設定しているアラームの個数
 
-let alermhour;//真のアラート用関数たち
+
+//アラーム用関数たちsettimefunc()
+let nowtime,nowhour,nowminute,sethour,setminute;
+let alermhour;
 let alermminute;
 let alermsecond;
-
-
-
-
-
-//はじめのページからかえる
-
 
 
 
@@ -62,7 +57,7 @@ function settimefunc()
 	alermhour=alermhour*60*60*1000;
 	alermminute=balanceminute+setminute-nowminute;
 
-alert(balanceminute+setminute-nowminute);
+alert(alermsecond);
 
 	//alermmunute→60秒*1000ミリ
 	alermminute=alermminute*60*1000;
@@ -83,7 +78,8 @@ alert(balanceminute+setminute-nowminute);
 
 
 function alerm(alermnum){
-	alert(alermnum);
+//最初にアラームをセットしたときのalermnumがほしいが、現在の値のalermnumになってしまっている
+
 	document.getElementById("alermmusic").play();
 
 }
@@ -127,9 +123,8 @@ width="150"  height="200" onclick="clicked()">
 <!--アラームのセット画面-->
 <h2>何時にしますか</h2><br>
 <input type="text" id="sethour">時<input type="text" id="setminute">分<br>
-
 <button type="button" value="alermsetbutton" onclick="settimefunc()">
-アラームをセット（0～24時　0～59分）
+	アラームをセット（0～24時　0～59分）
 </button>
 
 <div id="menu">
@@ -140,6 +135,13 @@ width="150"  height="200" onclick="clicked()">
 <div id="allalerm">
 </div>
 
+<!--アラーム読み上げ内容設定画面-->
+<div id="list">
+</div>
+
+<!--設定画面-->
+<div id="settings">
+</div>
 
 </center>
 
