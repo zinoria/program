@@ -12,25 +12,12 @@ let alermminute;
 let alermsecond;
 
 
-//はじめのページの変移
-let settimeform="<h2>何時にしますか</h2><br>";
-settimeform+="<input type='text' id='sethour'>時<input type='text' id='setminute'>分<br>"
-settimeform+="<div id='taima-' onclick='settimefunc()'>アラームをセット（0～24時　0～59分）</div>";
 
 
 
 //はじめのページからかえる
 
-function helloworld(){
-	
-	if(page==0){
-		document.getElementById("main").innerHTML=settimeform+"<audio id='alermmusic'src='alermMID_Splendid_reisiu_n.mp3' preload='auto'><p>（対応外ブラウザ向けの表示）</p></audio>";
 
-		document.getElementById("menu").innerHTML="<div id='back' onclick='helloworld()'>トップに戻る</div>";
-		document.getElementById("pic_ram").innerHTML="";
-		page=1;
-	}
-};
 
 
 function clicked()
@@ -134,17 +121,26 @@ width="100"  height="200" onclick="clicked()">
 
 <audio id="alermmusic" src="alermMID_Splendid_reisiu_n.mp3" preload="auto"><p>ｍｐ３に対応していないブラウザです</p></audio>;
 
+<h2>何時にしますか</h2><br>
+<input type="text" id="sethour">時<input type="text" id="setminute">分<br>
+<div id="taima-" onclick="settimefunc()">アラームをセット（0～24時　0～59分）</div>
 
 
 <div id="menu">
+お風呂　歯磨き･･･
 </div>
 
-
+//アラーム一覧
 <div id="allalerm">
 </div>
 
 
 </center>
+
+
+
+
+
 
 
 <script>//没案まとめ
