@@ -50,6 +50,7 @@ function settimefunc()
 	else{balancehour=24;}
 
 	if(setminute>nowminute){balanceminute=0;}
+	else if(setminute==nowminute){alert("現在時刻と同じなので、１分後にアラームを鳴らします");}
 	else{balanceminute=60;}
 
 	alermsecond=60-nowsecond;
@@ -82,7 +83,6 @@ function settimefunc()
 
 //alermnum"ber"に注意
 function alerm(alermnumber){
-//最初にアラームをセットしたときのalermnumがほしいが、現在の値のalermnumになってしまっている
 
 	document.getElementById("alermmusic").play();
 	alert(alermdata[alermnumber]+"の時間です");
