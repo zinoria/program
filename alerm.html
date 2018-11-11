@@ -58,14 +58,14 @@ function settimefunc()
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
 
-alert(balancehour+sethour-nowhour);
+alert("balancehour+sethour-nowhour:"+balancehour+sethour-nowhour);
 
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
 
 	alermminute=balanceminute+setminute-nowminute;
 
-alert(balanceminute+setminute-nowminute);
+alert("balanceminute+setminute-nowminute:"+balanceminute+setminute-nowminute);
 
 	//alermmunute→60秒*1000ミリ
 	alermminute=alermminute*60*1000;
