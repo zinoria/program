@@ -31,8 +31,7 @@ function clicked()
 
 function settimefunc()
 {
-	sethour=document.getElementById("sethour").value;
-	setminute=document.getElementById("setminute").value;
+
 	nowtime= new Date();
 	nowhour=nowtime.getHours();
 	nowminute=nowtime.getMinutes();
@@ -47,7 +46,7 @@ function settimefunc()
 
 	//さあ、難しい算数の時間だ
 	if(sethour>=nowhour){balancehour=0;}
-	else{balancehour=24;}
+	else{balancehour=23;}
 
 	if(setminute>nowminute){balanceminute=0;}
 	else if(setminute==nowminute){balanceminute=0;alert("現在時刻と同じなので、１分後にアラームを鳴らします");}
@@ -73,7 +72,6 @@ alert(balanceminute+setminute-nowminute);
 	alermsecond=alermsecond*1000;
 
 	//アラームが数字で設定されているか確認する
-	if(isNaN(setminute) == false && isNaN(sethour) == false){
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
 		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete()'>";
@@ -109,6 +107,11 @@ function wordsetting(wordsettingnum)
 {
 	alermdata[alermnum]=word[wordsettingnum];
 	//ここにアラームデータの大小を判別し、早いものから値を取り出すプログラムを書く
+	sethour=document.getElementById("sethour").value;
+	setminute=document.getElementById("setminute").value;
+	//フォームに数字が書かれていたらタイマーセット
+	if(isNaN(setminute) == false && isNaN(sethour) == false){settimefunc();}
+	else{alert("フォームにアラームをかける時刻を入力して下さい");}
 }
 
 
