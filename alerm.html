@@ -31,8 +31,7 @@ function clicked()
 
 function settimefunc()
 {
-	sethour=document.getElementById("sethour").value;
-	setminute=document.getElementById("setminute").value;
+
 	nowtime= new Date();
 	nowhour=nowtime.getHours();
 	nowminute=nowtime.getMinutes();
@@ -73,7 +72,7 @@ alert(balanceminute+setminute-nowminute);
 	alermsecond=alermsecond*1000;
 
 	//アラームが数字で設定されているか確認する
-	if(isNaN(setminute) == false && isNaN(sethour) == false){
+
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
 		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
@@ -81,8 +80,7 @@ alert(balanceminute+setminute-nowminute);
 
 		//アラームの個数を記録して、該当するものを消す（未実装）div idを個数に合わせてある
 		alermnum++;
-	}
-	else{alert("数字を入力して下さい")}
+
 
 alert(alermhour+alermminute+alermsecond);
 
@@ -106,8 +104,16 @@ alert(alermdeletenum+"つめをデリートします");
 
 function wordsetting(wordsettingnum)
 {
-	alermdata[alermnum]=word[wordsettingnum];
-	//ここにアラームデータの大小を判別し、早いものから値を取り出すプログラムを書く
+	sethour=document.getElementById("sethour").value;
+	setminute=document.getElementById("setminute").value;
+
+	if(isNaN(setminute) == false && isNaN(sethour) == false){
+		alermdata[alermnum]=word[wordsettingnum];
+		//ここにアラームデータの大小を判別し、早いものから値を取り出すプログラムを書く
+		settimefunc();
+	}
+	else{alert("数字を入力して下さい")}
+
 }
 
 
@@ -151,14 +157,12 @@ width="150"  height="200" onclick="clicked()">
 </div>
 
 
-<!--アラームのセット完了画面-->
-<button type="button" value="alermsetbutton" onclick="settimefunc()">
-	アラームをセット（時間を選択：0～24時　0～59分）(台詞を選択：台詞のボタンクリック)
-</button>
+
 
 
 <!--アラーム一覧-->
 <div id="allalerm">
+	アラームをセット（時間を選択：0～24時　0～59分）(台詞を選択：台詞のボタンクリック)
 </div>
 
 <!--アラーム読み上げ内容設定画面-->
