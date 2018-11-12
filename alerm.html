@@ -109,7 +109,8 @@ function wordsetting(wordsettingnum)
 	setminute=document.getElementById("setminute").value;
 
 	//ここで値を数字にしっかり変えておく
-	Number(sethour);Number(setminute);
+	sethour=Number(sethour);
+	setminute=Number(setminute);
 
 	if(isNaN(setminute) == false && isNaN(sethour) == false){
 		alermdata[alermnum]=word[wordsettingnum];
