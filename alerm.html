@@ -31,7 +31,8 @@ function clicked()
 
 function settimefunc()
 {
-
+	sethour=document.getElementById("sethour").value;
+	setminute=document.getElementById("setminute").value;
 	nowtime= new Date();
 	nowhour=nowtime.getHours();
 	nowminute=nowtime.getMinutes();
@@ -46,16 +47,17 @@ function settimefunc()
 
 	//さあ、難しい算数の時間だ
 	if(sethour>=nowhour){balancehour=0;}
-	else{balancehour=23;}
+	else{balancehour=24;}
 
-	if(setminute>nowminute){balanceminute=0;}
-	else if(setminute==nowminute){balanceminute=0;alert("現在時刻と同じなので、１分後にアラームを鳴らします");}
-	else{balanceminute=59;}
+	if(setminute>=nowminute){balanceminute=0;}
+	else{balanceminute=60;}
 
 	alermsecond=60-nowsecond;
 
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
+
+alert(balancehour+sethour-nowhour);
 
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
@@ -70,15 +72,16 @@ alert(balanceminute+setminute-nowminute);
 	alermsecond=alermsecond*1000;
 
 	//アラームが数字で設定されているか確認する
+	if(isNaN(setminute) == false && isNaN(sethour) == false){
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
-		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete()'>";
-		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんに<div id='word["+alermnum+"]'>"+alermdata[alermnum]+"</div>をセットしました<br></div>";
-
+		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
+		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
 		//アラームの個数を記録して、該当するものを消す（未実装）div idを個数に合わせてある
 		alermnum++;
-
+	}
+	else{alert("数字を入力して下さい")}
 
 alert(alermhour+alermminute+alermsecond);
 
@@ -88,32 +91,22 @@ alert(alermhour+alermminute+alermsecond);
 function alerm(alermnumber){
 
 	document.getElementById("alermmusic").play();
-
-	document.getElementById("allalerm").innerHTML+=alermdata[0]+"の時間です";
+	alert(alermdata[0]+"の時間です");
 
 }
 
 //アラームを削除する（未実装）
-function alermdelete()
+function alermdelete(alermdeletenum)
 {
-alert("デリートします");
+alert(alermdeletenum+"つめをデリートします");
 //document.getElementById("alerm"+alermdeletenum).innerHTML="";
 }
 
 
 function wordsetting(wordsettingnum)
 {
-
-	sethour=document.getElementById("sethour").value;
-	setminute=document.getElementById("setminute").value;
-
-	//フォームに数字が書かれていたらタイマーセット
-	if(isNaN(setminute) == false && isNaN(sethour) == false){
-		alermdata[alermnum]=word[wordsettingnum];
-		//ここにアラームデータの大小を判別し、早いものから値を取り出すプログラムを書く
-		settimefunc();
-	}
-	else{alert("フォームにアラームをかける時刻を入力して下さい");}
+	alermdata[alermnum]=word[wordsettingnum];
+	//ここにアラームデータの大小を判別し、早いものから値を取り出すプログラムを書く
 }
 
 
@@ -157,12 +150,14 @@ width="150"  height="200" onclick="clicked()">
 </div>
 
 
-
+<!--アラームのセット完了画面-->
+<button type="button" value="alermsetbutton" onclick="settimefunc()">
+	アラームをセット（時間を選択：0～24時　0～59分）(台詞を選択：台詞のボタンクリック)
+</button>
 
 
 <!--アラーム一覧-->
 <div id="allalerm">
-	アラームをセット（時間を選択：0～24時　0～59分）<br>(台詞を選択：台詞のボタンクリック)
 </div>
 
 <!--アラーム読み上げ内容設定画面-->
