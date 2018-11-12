@@ -47,10 +47,11 @@ function settimefunc()
 
 	//さあ、難しい算数の時間だ
 	if(sethour>=nowhour){balancehour=0;}
-	else{balancehour=24;}
+	else{balancehour=23;}
 
-	if(setminute>=nowminute){balanceminute=0;}
-	else{balanceminute=60;}
+	if(setminute>nowminute){balanceminute=-1;}
+	else if(setminute==nowminute){alert("現在時刻が設定されたので１分後にアラームを鳴らします");}
+	else{balanceminute=59;};
 
 	alermsecond=60-nowsecond;
 
