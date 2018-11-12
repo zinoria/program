@@ -48,8 +48,8 @@ function settimefunc()
 	if(sethour>=nowhour){balancehour=0;}
 	else{balancehour=23;}
 
-	if(setminute>nowminute){balanceminute=-1;}
-	else if(setminute==nowminute){alert("現在時刻が設定されたので１分後にアラームを鳴らします");}
+	if(setminute-nowminute>=1){balanceminute=-1;}
+	else if(setminute-nowminute==0){alert("現在時刻が設定されたので１分後にアラームを鳴らします");}
 	else{balanceminute=59;};
 
 	alermsecond=60-nowsecond;
@@ -57,6 +57,7 @@ function settimefunc()
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
 
+//時刻が正確じゃない！！一分ずれる
 alert(setminute-nowminute);
 alert(balanceminute);
 alert(balanceminute+setminute);
