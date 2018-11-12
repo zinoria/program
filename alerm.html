@@ -64,7 +64,7 @@ alert(balancehour+"_"+sethour-nowhour);
 
 	alermminute=balanceminute+setminute-nowminute;
 
-alert(balanceminute+setminute-nowminute);
+alert(balanceminute+"+"+setminute-nowminute);
 
 	//alermmunute→60秒*1000ミリ
 	alermminute=alermminute*60*1000;
@@ -98,8 +98,8 @@ function alerm(alermnumber){
 //アラームを削除する（未実装）
 function alermdelete(alermdeletenum)
 {
-alert(alermdeletenum+"つめをデリートします");
-//document.getElementById("alerm"+alermdeletenum).innerHTML="";
+	alert(alermdeletenum+"つめをデリートします");
+	//document.getElementById("alerm"+alermdeletenum).innerHTML="";
 }
 
 
