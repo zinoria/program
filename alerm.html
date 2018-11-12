@@ -59,7 +59,7 @@ function settimefunc()
 
 alert(setminute-nowminute);
 alert(balanceminute);
-alert(balanceminute+setminute-nowminute);
+alert(balanceminute+setminute);
 
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
@@ -75,7 +75,6 @@ alert(balanceminute+setminute-nowminute);
 	//アラームが数字で設定されているか確認する
 
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
-		alert("<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>");
 		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
 		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
 
