@@ -22,7 +22,7 @@ let alermsecond;
 function clicked()
 {
 	//ゆかりさんがランダムな一言を話す
-	alert("clicked");
+	alert("おしましたね？");
 }
 
 
@@ -57,10 +57,6 @@ function settimefunc()
 	//時間の差異が求められたのでミリ秒に直す
 	alermhour=balancehour+sethour-nowhour;
 
-//時刻が正確じゃない！！一分ずれる
-alert(balanceminute);
-alert(setminute);
-alert(balanceminute+setminute);
 
 	//alermhour→６０分*６０秒*1000ミリ
 	alermhour=alermhour*60*60*1000;
@@ -78,7 +74,6 @@ alert(balanceminute+setminute);
 		setTimeout(function(){alerm(alermnum);},alermhour+alermminute+alermsecond);
 		document.getElementById("allalerm").innerHTML+="<div id='alerm"+alermnum+"' onclick='alermdelete("+alermnum+")'>";
 		document.getElementById("allalerm").innerHTML+=sethour+"じ"+setminute+"ふんにアラームをセットしました<br></div>";
-
 		//アラームの個数を記録して、該当するものを消す（未実装）div idを個数に合わせてある
 		alermnum++;
 
